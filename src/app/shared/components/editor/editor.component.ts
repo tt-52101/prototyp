@@ -67,13 +67,6 @@ Quill.register(Size, true);
   preserveWhitespaces: false,
 })
 export class EditorComponent implements AfterViewInit, ControlValueAccessor, OnChanges, OnDestroy, Validator {
-  quill: any;
-  editorElem: HTMLElement;
-  emptyArray: any[] = [];
-  content: any;
-  selectionChangeEvent: any;
-  textChangeEvent: any;
-  _mode: 'full' | 'simple';
 
   @Input()
   set mode(value: 'full' | 'simple') {
@@ -128,6 +121,41 @@ export class EditorComponent implements AfterViewInit, ControlValueAccessor, OnC
       };
     }
   }
+
+  constructor(
+    private elementRef: ElementRef,
+    @Inject(DOCUMENT) private doc: any,
+    @Inject(PLATFORM_ID) private platformId: {},
+    private renderer: Renderer2,
+    private zone: NgZone,
+    private modalHelper: ModalHelper,
+  ) {}
+  quill: any;
+  editorElem: HTMLElement;
+  emptyArray: any[] = [];
+  content: any;
+  selectionChangeEvent: any;
+  textChangeEvent: any;
+  _mode: 'full' | 'simple';
+
+  @Input() format: 'object' | 'html' | 'text' | 'json' = 'html';
+  @Input() theme: string;
+  @Input() modules: { [index: string]: any };
+  @Input() @InputBoolean() readOnly: boolean;
+  @Input() placeholder = '';
+  @Input() @InputNumber() maxLength: number;
+  @Input() @InputNumber() minLength: number;
+  @Input() @InputBoolean() required: boolean;
+  @Input() formats: string[];
+  @Input() style: any = { height: '250px' };
+  @Input() @InputBoolean() strict = true;
+  @Input() scrollingContainer: HTMLElement | string;
+  @Input() bounds: HTMLElement | string;
+  @Input() customOptions: CustomOption[] = [];
+
+  @Output() readonly editorCreated = new EventEmitter();
+  @Output() readonly contentChanged = new EventEmitter();
+  @Output() readonly selectionChanged = new EventEmitter();
   private image(status) {
     this.modalHelper
       .create(
@@ -160,25 +188,6 @@ export class EditorComponent implements AfterViewInit, ControlValueAccessor, OnC
         }
       });
   }
-
-  @Input() format: 'object' | 'html' | 'text' | 'json' = 'html';
-  @Input() theme: string;
-  @Input() modules: { [index: string]: any };
-  @Input() @InputBoolean() readOnly: boolean;
-  @Input() placeholder = '';
-  @Input() @InputNumber() maxLength: number;
-  @Input() @InputNumber() minLength: number;
-  @Input() @InputBoolean() required: boolean;
-  @Input() formats: string[];
-  @Input() style: any = { height: '250px' };
-  @Input() @InputBoolean() strict = true;
-  @Input() scrollingContainer: HTMLElement | string;
-  @Input() bounds: HTMLElement | string;
-  @Input() customOptions: CustomOption[] = [];
-
-  @Output() readonly editorCreated = new EventEmitter();
-  @Output() readonly contentChanged = new EventEmitter();
-  @Output() readonly selectionChanged = new EventEmitter();
 
   @Input()
   valueGetter = (quillEditor: any, editorElement: HTMLElement): any => {
@@ -220,15 +229,6 @@ export class EditorComponent implements AfterViewInit, ControlValueAccessor, OnC
 
   onModelChange = (value: any) => {};
   onModelTouched = () => {};
-
-  constructor(
-    private elementRef: ElementRef,
-    @Inject(DOCUMENT) private doc: any,
-    @Inject(PLATFORM_ID) private platformId: {},
-    private renderer: Renderer2,
-    private zone: NgZone,
-    private modalHelper: ModalHelper,
-  ) {}
 
   ngAfterViewInit() {
     if (isPlatformServer(this.platformId)) {

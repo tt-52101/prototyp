@@ -18,6 +18,17 @@ import { ArrayService, copy } from '@delon/util';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FileManagerComponent implements OnInit {
+
+  private get parent_id() {
+    return this.path[this.path.length - 1];
+  }
+
+  constructor(
+    public http: _HttpClient,
+    private cdr: ChangeDetectorRef,
+    private arrSrv: ArrayService,
+    private msg: NzMessageService,
+  ) {}
   showType: 'big' | 'small' = 'big';
   s: any = { orderby: 0, ps: 20, pi: 1, q: '' };
   loading = false;
@@ -38,16 +49,19 @@ export class FileManagerComponent implements OnInit {
   @Output()
   selected = new EventEmitter<any>();
 
-  private get parent_id() {
-    return this.path[this.path.length - 1];
-  }
+  // #endregion
 
-  constructor(
-    public http: _HttpClient,
-    private cdr: ChangeDetectorRef,
-    private arrSrv: ArrayService,
-    private msg: NzMessageService,
-  ) {}
+  // #region rename
+
+  renameModel = false;
+  renameTitle = '';
+
+  // #endregion
+
+  // #region move
+  moveModel = false;
+  moveId = '';
+  folderNodes: any[] = [];
 
   ngOnInit() {
     this.load(1);
@@ -110,13 +124,6 @@ export class FileManagerComponent implements OnInit {
       this.load(1);
     }
   }
-
-  // #endregion
-
-  // #region rename
-
-  renameModel = false;
-  renameTitle = '';
   rename(i: any) {
     this.renameModel = true;
     this.item = i;
@@ -135,13 +142,6 @@ export class FileManagerComponent implements OnInit {
         this.cdr.detectChanges();
       });
   }
-
-  // #endregion
-
-  // #region move
-  moveModel = false;
-  moveId = '';
-  folderNodes: any[] = [];
   move(i: any) {
     this.moveModel = true;
     this.item = i;
