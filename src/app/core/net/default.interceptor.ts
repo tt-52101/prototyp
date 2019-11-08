@@ -16,21 +16,21 @@ import { environment } from '@env/environment';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 
 const CODEMESSAGE = {
-  200: '服务器成功返回请求的数据。',
-  201: '新建或修改数据成功。',
-  202: '一个请求已经进入后台排队（异步任务）。',
-  204: '删除数据成功。',
-  400: '发出的请求有错误，服务器没有进行新建或修改数据的操作。',
-  401: '用户没有权限（令牌、用户名、密码错误）。',
-  403: '用户得到授权，但是访问是被禁止的。',
-  404: '发出的请求针对的是不存在的记录，服务器没有进行操作。',
-  406: '请求的格式不可得。',
-  410: '请求的资源被永久删除，且不会再得到的。',
-  422: '当创建一个对象时，发生一个验证错误。',
-  500: '服务器发生错误，请检查服务器。',
-  502: '网关错误。',
-  503: '服务不可用，服务器暂时过载或维护。',
-  504: '网关超时。',
+  200: 'The request has succeeded.',
+  201: 'The request has succeeded and a new resource has been created as a result of it.',
+  202: 'The request has been received but not yet acted upon.',
+  204: 'There is no content to send for this request, but the headers may be useful. ',
+  400: 'This response means that server could not understand the request due to invalid syntax.',
+  401: 'Authentication is needed to get requested response. This is similar to 403, but in this case, authentication is possible.',
+  403: 'Client does not have access rights to the content so server is rejecting to give proper response.',
+  404: 'Server can not find requested resource. This response code probably is most famous one due to its frequency to occur in web.',
+  406: 'This response is sent when the web server, after performing server-driven content negotiation, doesnt find any content following the criteria given by the user agent.',
+  410: 'This response would be sent when requested content has been deleted from server.',
+  422: 'The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol. ',
+  500: 'The server has encountered a situation it doesnt know how to handle.',
+  502: 'This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.',
+  503: 'The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded.',
+  504: 'This error response is given when the server is acting as a gateway and cannot get a response in time.',
 };
 
 /**

@@ -10,19 +10,19 @@
     },
     "menu": [
       {
-        "text": "主导航",
+        "text": "Navi",
         "i18n": "menu.main",
         "group": true,
         "hideInBreadcrumb": true,
         "children": [
           {
-            "text": "仪表盘",
+            "text": "Dash board",
             "i18n": "menu.dashboard",
             "icon": "anticon anticon-dashboard",
             "link": "/dashboard"
           },
           {
-            "text": "快捷菜单",
+            "text": "Shortcut",
             "i18n": "menu.shortcut",
             "icon": "anticon anticon-rocket",
             "shortcutRoot": true,
