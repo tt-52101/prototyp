@@ -100,8 +100,8 @@ export const USERS = {
   'POST /user/avatar': 'ok',
   'POST /login/account': (req: MockRequest) => {
     const data = req.body;
-    if (!(data.userName === 'admin' || data.userName === 'user') || data.password !== 'ng-alain.com') {
-      return { msg: `Invalid username or password（admin/ng-alain.com）` };
+    if (!(data.userName === 'admin' || data.userName === 'user') || data.password !== '12345') {
+      return { msg: `Invalid username or password（admin/12345）` };
     }
     return {
       msg: 'ok',
@@ -110,6 +110,7 @@ export const USERS = {
         name: data.userName,
         email: `${data.userName}@qq.com`,
         id: 10000,
+        role: data.userName,
         time: +new Date(),
       },
     };
