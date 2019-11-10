@@ -22,15 +22,10 @@
             "link": "/dashboard"
           },
           {
-            "text": "Applications",
-            "i18n": "menu.shortcut",
+            "text": "Readinglines",
+            "i18n": "menu.other.article",
             "icon": "anticon anticon-rocket",
-            "shortcutRoot": true,
-            "children": [{
-              "text": "course",
-              "link": "/other/course",
-              "i18n": "menu.other.course"
-            }]
+            "link": "/articles"
           }
         ]
       }

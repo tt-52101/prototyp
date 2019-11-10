@@ -13,6 +13,7 @@ import { UserRegisterResultComponent } from './passport/register-result/register
 import { UserLockComponent } from './passport/lock/lock.component';
 // single pages
 import { CallbackComponent } from './callback/callback.component';
+import { ArticlesComponent } from './applications/articles.component';
 
 const routes: Routes = [
   {
@@ -26,8 +27,15 @@ const routes: Routes = [
         path: 'exception',
         loadChildren: './exception/exception.module#ExceptionModule',
       },
+      // applications
+      {
+        path: 'articles',
+        component: ArticlesComponent,
+        data: { title: 'Readlinglines', titleI18n: 'menu.other.article' },
+      },
     ],
   },
+
   // passport
   {
     path: 'passport',

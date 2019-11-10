@@ -11,22 +11,27 @@ import { UserRegisterResultComponent } from './passport/register-result/register
 import { UserLockComponent } from './passport/lock/lock.component';
 // single pages
 import { CallbackComponent } from './callback/callback.component';
+import { ArticlesEditComponent } from './applications/edit/edit.component';
+import { ArticlesComponent } from './applications/articles.component';
+//
 
 const COMPONENTS = [
   DashboardComponent,
+  ArticlesEditComponent,
+  ArticlesComponent,
   // passport pages
   UserLoginComponent,
   UserRegisterComponent,
   UserRegisterResultComponent,
   UserLockComponent,
   // single pages
-  CallbackComponent
+  CallbackComponent,
 ];
 const COMPONENTS_NOROUNT = [];
 
 @NgModule({
   imports: [SharedModule, RouteRoutingModule],
   declarations: [...COMPONENTS, ...COMPONENTS_NOROUNT],
-  entryComponents: COMPONENTS_NOROUNT
+  entryComponents: COMPONENTS_NOROUNT,
 })
 export class RoutesModule {}
