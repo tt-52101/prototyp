@@ -22,11 +22,15 @@
             "link": "/dashboard"
           },
           {
-            "text": "Shortcut",
+            "text": "Applications",
             "i18n": "menu.shortcut",
             "icon": "anticon anticon-rocket",
             "shortcutRoot": true,
-            "children": []
+            "children": [{
+              "text": "course",
+              "link": "/other/course",
+              "i18n": "menu.other.course"
+            }]
           }
         ]
       }
