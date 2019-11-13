@@ -13,7 +13,9 @@ import { UserRegisterResultComponent } from './passport/register-result/register
 import { UserLockComponent } from './passport/lock/lock.component';
 // single pages
 import { CallbackComponent } from './callback/callback.component';
-import { ArticlesComponent } from './applications/articles.component';
+
+// how to create the routing for module :
+// ng g module routes/applications/application-routing --module routes/applications --flat
 
 const routes: Routes = [
   {
@@ -28,11 +30,7 @@ const routes: Routes = [
         loadChildren: './exception/exception.module#ExceptionModule',
       },
       // applications
-      {
-        path: 'articles',
-        component: ArticlesComponent,
-        data: { title: 'Readlinglines', titleI18n: 'menu.other.article' },
-      },
+      { path: 'applications', loadChildren: './applications/applications.module#ApplicationsModule' },
     ],
   },
 
@@ -44,22 +42,22 @@ const routes: Routes = [
       {
         path: 'login',
         component: UserLoginComponent,
-        data: { title: '登录', titleI18n: 'app.login.login' },
+        data: { title: 'Login', titleI18n: 'app.login.login' },
       },
       {
         path: 'register',
         component: UserRegisterComponent,
-        data: { title: '注册', titleI18n: 'app.register.register' },
+        data: { title: 'Register', titleI18n: 'app.register.register' },
       },
       {
         path: 'register-result',
         component: UserRegisterResultComponent,
-        data: { title: '注册结果', titleI18n: 'app.register.register' },
+        data: { title: 'Register Result', titleI18n: 'app.register.register' },
       },
       {
         path: 'lock',
         component: UserLockComponent,
-        data: { title: '锁屏', titleI18n: 'app.lock' },
+        data: { title: 'Lock Monitor', titleI18n: 'app.lock' },
       },
     ],
   },

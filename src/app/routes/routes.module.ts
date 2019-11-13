@@ -12,13 +12,11 @@ import { UserLockComponent } from './passport/lock/lock.component';
 // single pages
 import { CallbackComponent } from './callback/callback.component';
 import { ArticlesEditComponent } from './applications/edit/edit.component';
-import { ArticlesComponent } from './applications/articles.component';
 //
 
 const COMPONENTS = [
   DashboardComponent,
   ArticlesEditComponent,
-  ArticlesComponent,
   // passport pages
   UserLoginComponent,
   UserRegisterComponent,

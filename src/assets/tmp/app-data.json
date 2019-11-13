@@ -25,7 +25,28 @@
             "text": "Readinglines",
             "i18n": "menu.other.article",
             "icon": "anticon anticon-rocket",
-            "link": "/articles"
+            "link": "/applications/articles"
+          },
+          {
+            "text": "calendar",
+            "i18n": "menu.other.calendar",
+            "children": [
+              {
+                "text": "Basic Calendar",
+                "link": "/applications/calendar/basic",
+                "i18n": "menu.other.calendar.basic"
+              },
+              {
+                "text": "List View",
+                "link": "/applications/calendar/list",
+                "i18n": "menu.other.calendar.list"
+              },
+              {
+                "text": "Events",
+                "link": "/applications/calendar/events",
+                "i18n": "menu.other.calendar.events"
+              }
+            ]
           }
         ]
       }
