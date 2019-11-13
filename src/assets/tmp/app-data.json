@@ -1,12 +1,12 @@
 {
     "app": {
-      "name": "Ng Alain Pro",
-      "description": "Ng-zorro admin panel front-end framework"
+      "name": "Prototyp",
+      "description": "test ng alain"
     },
     "user": {
       "name": "Admin",
       "avatar": "./assets/tmp/img/avatar.jpg",
-      "email": "cipchk@qq.com"
+      "email": "abc@gmail.com"
     },
     "menu": [
       {
